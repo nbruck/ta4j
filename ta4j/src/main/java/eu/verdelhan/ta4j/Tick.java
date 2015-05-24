@@ -26,11 +26,13 @@ package eu.verdelhan.ta4j;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 
+import java.io.Serializable;
+
 /**
  * End tick of a time period.
  * <p>
  */
-public class Tick {
+public class Tick implements Serializable {
 
     /** Time period (e.g. 1 day, 15 min, etc.) of the tick */
     private Period timePeriod;
@@ -52,6 +54,11 @@ public class Tick {
     private Decimal volume = Decimal.ZERO;
     /** Trade count */
     private int trades = 0;
+
+
+    public Tick(){
+
+    }
 
     /**
      * Constructor.
@@ -115,6 +122,10 @@ public class Tick {
         this.minPrice = lowPrice;
         this.closePrice = closePrice;
         this.volume = volume;
+    }
+
+    public void setTrades(int trades){
+        this.trades = trades;
     }
 
     /**
